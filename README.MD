@@ -2,6 +2,8 @@
 
 <video src="https://ardean.me/wp-content/uploads/2026/01/app.mp4" controls></video>
 
+[Video Demo](https://ardean.me/wp-content/uploads/2026/01/app.mp4)
+
 **A Robust JavaFX-Based Store Management System.**
 
 StoreX POS is a professional desktop application engineered for rapid transaction processing, real-time inventory tracking, and a modern user experience. Built on the Java 21 LTS platform, it leverages a modular MVC architecture to ensure maintainability and high performance in local retail environments.
