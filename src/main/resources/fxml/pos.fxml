@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<HBox spacing="20.0"
+    xmlns="http://javafx.com/javafx/21"
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.storex.controller.POSController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+    <children>
+        <VBox spacing="10" HBox.hgrow="ALWAYS">
+            <Label text="Sales" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+            <HBox spacing="10">
+                <TextField fx:id="txtSearch" promptText="Search for Barcode or Product Name..." HBox.hgrow="ALWAYS" onAction="#handleSearch" />
+                <Button text="Search/Add" onAction="#handleSearch" styleClass="accent" />
+            </HBox>
+            <TableView fx:id="tblCart" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colCartName" text="Product" prefWidth="220" />
+                    <TableColumn fx:id="colCartPrice" text="Price" prefWidth="110" />
+                    <TableColumn fx:id="colCartQty" text="Qty" prefWidth="60" />
+                    <TableColumn fx:id="colCartSubtotal" text="Subtotal" prefWidth="110" />
+                    <TableColumn fx:id="colCartActions" text="Qty" prefWidth="90" />
+                </columns>
+            </TableView>
+        </VBox>
+
+        <VBox spacing="20" prefWidth="320" style="-fx-background-color: #f8f9fa; -fx-background-radius: 10; -fx-border-color: #e0e0e0; -fx-border-radius: 10;">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+            <children>
+                <Label text="Payment Summary" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+                <Separator />
+                <VBox spacing="5">
+                    <Label text="TOTAL:" />
+                    <Label fx:id="lblTotal" text="Rp 0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2ecc71;" />
+                </VBox>
+                <VBox spacing="5">
+                    <Label text="Cash:" />
+                    <TextField fx:id="txtCash" promptText="Input Cash Amount..." style="-fx-font-size: 18px;" />
+                </VBox>
+                <Label fx:id="lblChange" text="Change: Rp 0" style="-fx-font-size: 14px;" />
+                <Separator />
+                <Button maxWidth="Infinity" text="PROCESS TRANSACTION" onAction="#handleCheckout" styleClass="accent" style="-fx-font-size: 16px; -fx-padding: 12;" />
+                <Button maxWidth="Infinity" text="Empty Cart" onAction="#handleClear" styleClass="danger" />
+            </children>
+        </VBox>
+    </children>
+</HBox>

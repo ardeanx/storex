@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<ScrollPane fitToWidth="true" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.storex.controller.SettingsController">
+    <VBox spacing="20" style="-fx-background-color: white;">
+        <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+
+        <Label text="System Settings" styleClass="title-2" style="-fx-font-weight: bold;"/>
+        <Separator/>
+
+        <GridPane hgap="20" vgap="15">
+            <columnConstraints>
+                <ColumnConstraints minWidth="180" prefWidth="220" />
+                <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+
+            <Label text="Application Name" style="-fx-font-weight: bold;" GridPane.rowIndex="0" />
+            <TextField fx:id="txtAppName" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label text="Logo &amp; Icon" GridPane.rowIndex="1" />
+            <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Button text="Select Logo" onAction="#handleSelectLogo" styleClass="button-outlined" />
+                <Button text="Select Icon" onAction="#handleSelectIcon" styleClass="button-outlined" />
+                <Label fx:id="lblPaths" text="File belum dipilih" textFill="GRAY" style="-fx-font-size: 11px;">
+                    <padding><Insets top="5"/></padding>
+                </Label>
+            </HBox>
+
+            <Label text="Currency Symbol" GridPane.rowIndex="2" />
+            <TextField fx:id="txtCurrency" promptText="Example: Rp" maxWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <Label text="Contact Information" styleClass="title-4" GridPane.rowIndex="3" style="-fx-padding: 10 0 0 0;"/>
+            <Separator GridPane.columnIndex="1" GridPane.rowIndex="3" style="-fx-padding: 10 0 0 0;"/>
+
+            <Label text="Store Name" GridPane.rowIndex="4" />
+            <TextField fx:id="txtShopName" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+            <Label text="Store Email" GridPane.rowIndex="5" />
+            <TextField fx:id="txtShopEmail" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+            <Label text="No. Telepon Toko" GridPane.rowIndex="6" />
+            <TextField fx:id="txtShopPhone" promptText="Example: 021-xxxx / 0812xxx" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="Store Address" GridPane.rowIndex="7" />
+            <TextArea fx:id="txtShopAddress" prefHeight="80" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+
+            <Label text="Regional" styleClass="title-4" GridPane.rowIndex="8" style="-fx-padding: 10 0 0 0;"/>
+            <Separator GridPane.columnIndex="1" GridPane.rowIndex="8" style="-fx-padding: 10 0 0 0;"/>
+
+            <Label text="Timezone" GridPane.rowIndex="9" />
+            <ComboBox fx:id="comboTimezone" GridPane.columnIndex="1" GridPane.rowIndex="9" prefWidth="350" />
+        </GridPane>
+
+        <Region VBox.vgrow="ALWAYS" />
+        <Separator/>
+
+        <HBox alignment="CENTER_RIGHT" spacing="15">
+            <Button text="Save Changes" onAction="#handleSave"
+                    styleClass="accent" style="-fx-cursor: hand; -fx-padding: 10 40;"/>
+        </HBox>
+    </VBox>
+</ScrollPane>

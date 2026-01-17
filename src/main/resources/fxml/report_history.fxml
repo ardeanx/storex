@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.storex.controller.ReportController">
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
+    </padding>
+    <children>
+        <Label text="Transaction History" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+        <HBox spacing="10.0" alignment="CENTER_LEFT">
+            <TextField fx:id="txtSearchHistory" placeholder="Search Transaction ID..." prefWidth="250.0" />
+            <Button text="Filter Today" onAction="#filterToday" />
+        </HBox>
+
+        <TableView fx:id="tblHistory" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="80.0" />
+                <TableColumn fx:id="colDate" text="Date" prefWidth="180.0" />
+                <TableColumn fx:id="colTotal" text="Total" prefWidth="150.0" />
+                <TableColumn fx:id="colCash" text="Cash" prefWidth="150.0" />
+                <TableColumn fx:id="colStatus" text="Status" prefWidth="100.0" />
+                <TableColumn fx:id="colAction" text="Actions" prefWidth="120.0" />
+            </columns>
+        </TableView>
+    </children>
+</VBox>

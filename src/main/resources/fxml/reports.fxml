@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.storex.controller.ReportController">
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
+    </padding>
+    <children>
+        <VBox spacing="5.0">
+            <Label text="Transaction History">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+            </Label>
+            <Label text="Manage and monitor all sales transactions" textFill="#666666" />
+        </VBox>
+
+        <HBox spacing="10.0" alignment="CENTER_LEFT">
+            <TextField fx:id="txtSearch" promptText="Search Transaction ID..." prefWidth="250.0" />
+            <Button text="Refresh Data" onAction="#loadData" />
+        </HBox>
+
+        <TableView fx:id="tableSales" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="60.0" />
+                <TableColumn fx:id="colDate" text="Date &amp; Time" prefWidth="180.0" />
+                <TableColumn fx:id="colTotal" text="Total Sales" prefWidth="140.0" />
+                <TableColumn fx:id="colCash" text="Cash" prefWidth="140.0" />
+                <TableColumn fx:id="colChange" text="Change" prefWidth="140.0" />
+                <TableColumn fx:id="colStatus" text="Status" prefWidth="100.0" />
+                <TableColumn fx:id="colAction" text="Actions" prefWidth="100.0" />
+            </columns>
+        </TableView>
+    </children>
+</VBox>

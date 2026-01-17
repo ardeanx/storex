@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+
+<BorderPane prefHeight="768.0" prefWidth="1024.0"
+    xmlns="http://javafx.com/javafx/21"
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.storex.controller.DashboardController">
+    <left>
+        <VBox prefWidth="220.0" spacing="10.0" style="-fx-background-color: #f4f4f4; -fx-border-color: #e0e0e0; -fx-border-width: 0 1 0 0;">
+            <padding>
+                <Insets bottom="20.0" left="15.0" right="15.0" top="20.0" />
+            </padding>
+            <children>
+                <StackPane alignment="CENTER_LEFT">
+                    <children>
+                        <ImageView fx:id="imgLogoSidebar" fitWidth="180.0" preserveRatio="true" managed="false" visible="false" />
+                        <Label fx:id="lblAppFallback" text="StoreX">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </StackPane>
+
+                <Separator prefWidth="200.0" />
+                <Button maxWidth="Infinity" onAction="#showHome" text="Dashboard" />
+                <Button maxWidth="Infinity" onAction="#showPOS" text="Sales" />
+                <Button fx:id="btnProducts" maxWidth="Infinity" onAction="#showProducts" text="Item" />
+                <Button fx:id="btnReports" maxWidth="Infinity" onAction="#showReports" text="Reports" />
+                <Button fx:id="btnUsers" maxWidth="Infinity" onAction="#showUsers" text="Users" />
+                <Separator />
+                <Button fx:id="btnSettings" maxWidth="Infinity" onAction="#showSettings" text="Settings" />
+                <Separator />
+                <Button maxWidth="Infinity" onAction="#handleLogout" style="-fx-text-fill: red;" text="Logout" />
+            </children>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="mainContent">
+            <children>
+                <VBox spacing="30.0">
+                    <padding>
+                        <Insets top="40.0" right="40.0" bottom="40.0" left="40.0" />
+                    </padding>
+                    <children>
+                        <VBox spacing="5.0">
+                            <Label text="Overview">
+                                <font>
+                                    <Font name="System Bold" size="24.0" />
+                                </font>
+                            </Label>
+                            <Label text="Today's sales statistics" textFill="#666666" />
+                        </VBox>
+
+                        <HBox spacing="20.0">
+                            <children>
+                                <VBox alignment="CENTER" prefWidth="250.0" style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 20;" HBox.hgrow="ALWAYS">
+                                    <Label text="Today's Revenue" textFill="#777" />
+                                    <Label fx:id="lblTodayRevenue" text="Rp 0">
+                                        <font>
+                                            <Font name="System Bold" size="20.0" />
+                                        </font>
+                                    </Label>
+                                </VBox>
+                                <VBox alignment="CENTER" prefWidth="250.0" style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 20;" HBox.hgrow="ALWAYS">
+                                    <Label text="Total Transactions" textFill="#777" />
+                                    <Label fx:id="lblTodaySales" text="0">
+                                        <font>
+                                            <Font name="System Bold" size="20.0" />
+                                        </font>
+                                    </Label>
+                                </VBox>
+                                <VBox alignment="CENTER" prefWidth="250.0" style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 20;" HBox.hgrow="ALWAYS">
+                                    <Label text="Top Product" textFill="#777" />
+                                    <Label fx:id="lblTopProduct" text="-">
+                                        <font>
+                                            <Font name="System Bold" size="20.0" />
+                                        </font>
+                                    </Label>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <VBox VBox.vgrow="ALWAYS" style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 10;">
+                            <children>
+                                <Label text="Trend Sales 7 Days">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets left="10.0" top="5.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <BarChart fx:id="salesChart" animated="true" VBox.vgrow="ALWAYS">
+                                    <xAxis>
+                                        <CategoryAxis fx:id="xAxis" side="BOTTOM" />
+                                    </xAxis>
+                                    <yAxis>
+                                        <NumberAxis fx:id="yAxis" side="LEFT" />
+                                    </yAxis>
+                                </BarChart>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </center>
+</BorderPane>

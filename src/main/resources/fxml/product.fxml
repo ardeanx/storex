@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20.0"
+    xmlns="http://javafx.com/javafx/21"
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.storex.controller.ProductController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+    <children>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Product Management" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Add New Product" styleClass="accent" onAction="#handleAddProduct" />
+        </HBox>
+
+        <TableView fx:id="tblProducts" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50" />
+                <TableColumn fx:id="colName" text="Product Name" prefWidth="250" />
+                <TableColumn fx:id="colCategory" text="Category" prefWidth="150" />
+                <TableColumn fx:id="colPrice" text="Price" prefWidth="120" />
+                <TableColumn fx:id="colStock" text="Stock" prefWidth="80" />
+                <TableColumn fx:id="colActions" text="Actions" prefWidth="150" />
+            </columns>
+        </TableView>
+    </children>
+</VBox>
