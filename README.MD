@@ -1,6 +1,6 @@
 # StoreX POS
 
-![Video](assets/app.mp4)
+<video src="https://ardean.me/wp-content/uploads/2026/01/app.mp4" controls></video>
 
 **A Robust JavaFX-Based Store Management System.**
 
