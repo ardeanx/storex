@@ -99,22 +99,16 @@ public class ProductDAO {
      *
      * @param p Product containing updated values (must include valid id)
      * @return true when update affected > 0 rows, false on failure
-     *
-     * <p>
-     * IMPORTANT: SQL updates {@code category_id=?} but sets a String via
-     * {@code p.category()}. This indicates a likely schema/code mismatch
-     * (category vs category_id). Verify DB schema and adjust code or schema
-     * accordingly.
      */
     public boolean update(Product p) {
-        String sql = "UPDATE products SET barcode=?, name=?, description=?, price=?, stock=?, category_id=? WHERE id=?";
+        String sql = "UPDATE products SET barcode=?, name=?, description=?, price=?, stock=?, category=? WHERE id=?";
         try (Connection conn = DatabaseHelper.connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, p.barcode());
             pstmt.setString(2, p.name());
             pstmt.setString(3, p.description());
             pstmt.setBigDecimal(4, p.price());
             pstmt.setInt(5, p.stock());
-            pstmt.setString(6, p.category()); // potential type mismatch if category_id expects integer
+            pstmt.setString(6, p.category());
             pstmt.setInt(7, p.id());
             return pstmt.executeUpdate() > 0;
         } catch (SQLException e) {
